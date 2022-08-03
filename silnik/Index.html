@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script src="DataStructures/Vector.js"></script>
+    <script src="DataStructures/Quaternion.js"></script>
+    <script src="DataStructures/Triangle.js"></script>
+    <script src="DataStructures/Matrix.js"></script>
+    <script src="Objects/GameObject.js"></script>
+
+    <script src="Objects/Cube.js"></script>
+    <script src="Utils/DrawingUtils.js"></script>
+    <script src="Objects/Camera.js"></script>
+    <script src="Objects/Engine.js"></script>
+    <canvas width="256px" height="240px"></canvas>
+    <script>
+        engine=new Engine();
+  
+        camera=new Camera(document.querySelector("canvas"));
+     
+       // setInterval(()=>{engine.fixedUpdate()},1000/10)
+        engine.createObject("cube",new Vector3(300,50,20));
+        engine.createObject("cube",new Vector3(0,0,0));
+        engine.useCamera(camera);
+    </script>
+
+</body>
+</html>
