@@ -38,28 +38,30 @@ class Camera extends GameObject {
 
         
 
-        let matRotZ = new Matrix4x4();
+        let matRot = new Matrix4x4();
         let matRotX = new Matrix4x4();
 
-        let fTheta = 1;
+        let fTheta = 2;
     
        
         let trianglesToRasterize=[];
         for (let i = 0; i < gameObjectList.length; i++) {
             
-            matRotZ.m[0][0] = Math.cos(fTheta);
-            matRotZ.m[0][1] = Math.sin(fTheta);
-            matRotZ.m[1][0] = -Math.sin(fTheta);
-            matRotZ.m[1][1] = Math.cos(fTheta);
-            matRotZ.m[2][2] = 1;
-            matRotZ.m[3][3] = 1;
-
+            matRot.m[0][0] = Math.cos(fTheta);
+            matRot.m[0][1] = Math.sin(fTheta);
+            matRot.m[1][0] = -Math.sin(fTheta);
+            matRot.m[1][1] = Math.cos(fTheta);
+            matRot.m[2][2] = 1;
+            matRot.m[3][3] = 1;
+            
             matRotX.m[0][0] = 1;
             matRotX.m[1][1] = Math.cos(fTheta * 0.5);
             matRotX.m[1][2] = Math.sin(fTheta * 0.5);
             matRotX.m[2][1] = -Math.sin(fTheta * 0.5);
             matRotX.m[2][2] = Math.cos(fTheta * 0.5);;
             matRotX.m[3][3] = 1;
+           matRot=matRot.multiplyMatrixByMatrix(matRotX)
+
           
             for (let j = 0; j < gameObjectList[i].mesh.length; j++) {
           
@@ -69,13 +71,11 @@ class Camera extends GameObject {
                 var triangleRotated = gameObjectList[i].mesh[j];
                 
 
-                triangleRotated.v1 = matRotZ.multiplyMatrixVector(triangleRotated.v1);
-                triangleRotated.v2 = matRotZ.multiplyMatrixVector(triangleRotated.v2);
-                triangleRotated.v3 = matRotZ.multiplyMatrixVector(triangleRotated.v3);
+                triangleRotated.v1 = matRot.multiplyMatrixVector(triangleRotated.v1);
+                triangleRotated.v2 = matRot.multiplyMatrixVector(triangleRotated.v2);
+                triangleRotated.v3 = matRot.multiplyMatrixVector(triangleRotated.v3);
 
-                triangleRotated.v1 = matRotX.multiplyMatrixVector(triangleRotated.v1);
-                triangleRotated.v2 = matRotX.multiplyMatrixVector(triangleRotated.v2);
-                triangleRotated.v3 = matRotX.multiplyMatrixVector(triangleRotated.v3);
+                
                 triangleTranslated = triangleRotated;
                 triangleTranslated.v1.z += 3
                 triangleTranslated.v2.z +=3

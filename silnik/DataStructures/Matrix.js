@@ -26,4 +26,23 @@ class Matrix4x4 {
         }
         return o;
     }
+    multiplyMatrixByMatrix(matrix){
+      
+        //TODO:sprawdzenie czy ilość kolumn i wierszy sie zgadza
+        let newMatrix=new Matrix4x4;
+        for(let i=0;i<4;i++){
+        
+           for(let j=0;j<4;j++){
+            let dotProduct=0;
+                for(let k=0;k<4;k++){
+                dotProduct+=this.m[i][k]*matrix.m[k][j];
+               
+
+                }
+                newMatrix.m[i][j]=dotProduct;
+           }
+           
+        }
+        return newMatrix;
+    }
 }
