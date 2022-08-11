@@ -10,7 +10,7 @@
 </head>
 
 <body>
- 
+
   <canvas width="1500" height="500px"></canvas>
   <input type="file"></input>
   <script src="Inputs.html"></script>
@@ -30,19 +30,19 @@
     camera = new Camera(new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0), document.querySelector("canvas"));
 
     // setInterval(()=>{engine.fixedUpdate()},1000/10)
-   // engine.createObject("cube", new Vector3(120, 0, 0));
+    // engine.createObject("cube", new Vector3(120, 0, 0));
 
-  
-    document.querySelector("input").onchange=function(){
-   
-      engine.createObject("gameObject",new Vector3(0,0,0),this);
-   
+
+    document.querySelector("input").onchange = function () {
+
+      engine.createObject("gameObject", new Vector3(0, 0, 0), this);
+
     }
-    engine.createObject("cube",new Vector3(0,0,0));
-   setInterval(()=>{engine.useCamera(camera)},1000);
-   engine.useCamera(camera);
-   
-    
+    engine.createObject("cube", new Vector3(0, 0, 0));
+    setInterval(() => {
+      engine.useCamera(camera)
+    }, 1000);
+    engine.useCamera(camera);
   </script>
 
 </body>

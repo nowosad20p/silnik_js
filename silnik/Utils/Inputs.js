@@ -1,20 +1,20 @@
-class Inputs{
-constructor(){
+class Inputs {
+    constructor() {
 
-this.keysPressed=[];
-this.keysDown=[];
-this.keysUp=[];
-}
-GetKey(){
+        this.keysPressed = [];
+        this.keysDown = [];
+        this.keysUp = [];
+    }
+    GetKey() {
 
-}
-UpdateKeysUp(){
+    }
+    UpdateKeysUp() {
 
-}
-UpdateKeysDown(){
+    }
+    UpdateKeysDown() {
 
-}
-UpdateKeysPressed(){
+    }
+    UpdateKeysPressed() {
 
-}
+    }
 }
