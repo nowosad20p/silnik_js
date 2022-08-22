@@ -96,8 +96,8 @@ function RotXMatrix(AngleRad){
 function multiplyMatrixAndVector(matrix,vector){
     
         let o = new Vector3(0, 0, 0)
-        m=matrix;
-        i=vector;
+        m=JSON.parse(JSON.stringify(matrix));
+        i=JSON.parse(JSON.stringify(vector));
         o.x=i.x*m.m[0][0]+i.y*m.m[1][0]+i.z*m.m[2][0]+i.w*m.m[3][0];
         o.y=i.x*m.m[0][1]+i.y*m.m[1][1]+i.z*m.m[2][1]+i.w*m.m[3][1];
         o.z=i.x*m.m[0][2]+i.y*m.m[1][2]+i.z*m.m[2][2]+i.w*m.m[3][2];

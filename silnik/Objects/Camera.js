@@ -15,6 +15,7 @@ class Camera extends GameObject {
 
     }
     display(gameObjectListt) {
+      
         //getting rid of object reference
         let gameObjectList = JSON.parse(JSON.stringify(gameObjectListt));
         //clearing canvas

@@ -8,18 +8,19 @@ class Engine {
 
     }
     fixedUpdate() {
-       
         this.camera.display(this.objectList);
+       
+    
     
     }
-    startEngine(){
-      
+    start(){
+      this.interval=window.setInterval(()=>{this.fixedUpdate()},1000);
     }
 
   
     useCamera(camera) {
         this.camera = camera;
-        this.camera.display(this.objectList);
+
       
     }
     createObject(type, position,mesh=undefined) {

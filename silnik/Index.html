@@ -39,10 +39,11 @@
 
     }
     engine.createObject("cube", new Vector3(0, 0, 0));
-    setInterval(() => {
-      engine.useCamera(camera)
-    }, 1000);
+    
     engine.useCamera(camera);
+    engine.start();
+  
+
   </script>
 
 </body>
