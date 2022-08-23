@@ -5,16 +5,16 @@ class Engine {
         this.fpsCount = fpsCount;
         this.objectList = [];
         this.camera = undefined;
-
+        this.timeUtils=new TimeUtils();
     }
     fixedUpdate() {
         this.camera.display(this.objectList);
-       
+       this.timeUtils.fixedUpdate();
     
     
     }
     start(){
-      this.interval=window.setInterval(()=>{this.fixedUpdate()},1000);
+      this.interval=window.setInterval(()=>{this.fixedUpdate()},1000/this.fpsCount);
     }
 
   

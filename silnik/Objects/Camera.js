@@ -34,7 +34,7 @@ class Camera extends GameObject {
 
 
         //declaring rotation matrices
-        //TODO:theta calculated from rotation
+       
        
 
       
